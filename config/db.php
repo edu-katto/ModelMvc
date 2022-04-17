@@ -2,14 +2,19 @@
 
 class Database{
     public static function connect(){
-        $host = 'localhost';
-        $userName = 'decimo10';
-        $password = '7250015';
-        $dataBase = 'anaswayuu';
-        $port = '3306';
+        try {
+            $host = 'localhost';
+            $database = 'DATABASE';
+            $user = 'USER';
+            $password = 'PASSWORD';
 
-        $conexion = new mysqli($host,$userName,$password,$dataBase,$port);
-        $conexion->query("SET NAMES 'utf8'");
-        return $conexion;
+            $conexion = new PDO('mysql:host='.$host.';dbname='.$database, $user, $password, array(
+                PDO::ATTR_PERSISTENT => true, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+            return $conexion;
+        } catch (PDOException $e) {
+            error_log("Error al conectar la base de datos: ".$e->getMessage());
+        }
+
     }
 }
