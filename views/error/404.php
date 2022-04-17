@@ -1,57 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="<?=base_url?>views/assets/css/404.css">
-	<title>Error 404</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Error 404</title>
+    <style>
+        * {
+            margin:0px auto;
+            padding: 0px;
+            text-align:center;
+        }
+        body {
+            background-color: #D4D9ED;
+        }
+        .cont_principal {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .cont_error {
+            position: absolute;
+            width: 100%;
+            height: 300px;
+            top: 50%;
+            margin-top:-150px;
+        }
+        .cont_error > h1  {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            font-size:150px;
+            color:#fff;
+            position: relative;
+            left:-100%;
+            transition: all 0.5s;
+        }
+        .cont_error > p  {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size:24px;
+            letter-spacing: 5px;
+            color:#9294AE;
+            position: relative;
+            left:100%;
+            transition: all 0.5s;
+            transition-delay: 0.5s;
+            -webkit-transition: all 0.5s;
+            -webkit-transition-delay: 0.5s;
+        }
+        .cont_aura_1 {
+            position:absolute;
+            width:300px;
+            height: 120%;
+            top:25px;
+            right: -340px;
+            background-color: #8A65DF;
+            box-shadow: 0px 0px  60px  20px  rgba(137,100,222,0.5);
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        .cont_aura_2 {
+            position:absolute;
+            width:100%;
+            height: 300px;
+            right:-10%;
+            bottom:-301px;
+            background-color: #8B65E4;
+            box-shadow: 0px 0px 60px 10px rgba(131, 95, 214, 0.5),0px 0px  20px  0px  rgba(0,0,0,0.1);
+            z-index:5;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+        .cont_error_active > .cont_error > h1 {
+            left:0%;
+        }
+        .cont_error_active > .cont_error > p {
+            left:0%;
+        }
+        .cont_error_active > .cont_aura_2 {
+            animation-name: animation_error_2;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            transform: rotate(-20deg);
+        }
+        .cont_error_active > .cont_aura_1 {
+            transform: rotate(20deg);
+            right:-170px;
+            animation-name: animation_error_1;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @-webkit-keyframes animation_error_1 {
+            from {
+                -webkit-transform: rotate(20deg);
+                transform: rotate(20deg);
+            }
+            to {  -webkit-transform: rotate(25deg);
+                transform: rotate(25deg);
+            }
+        }
+        @-o-keyframes animation_error_1 {
+            from {
+                -webkit-transform: rotate(20deg);
+                transform: rotate(20deg);
+            }
+            to {  -webkit-transform: rotate(25deg);
+                transform: rotate(25deg);
+            }
+        }
+        @-moz-keyframes animation_error_1 {
+            from {
+                -webkit-transform: rotate(20deg);
+                transform: rotate(20deg);
+            }
+            to {  -webkit-transform: rotate(25deg);
+                transform: rotate(25deg);
+            }
+        }
+        @keyframes animation_error_1 {
+            from {
+                -webkit-transform: rotate(20deg);
+                transform: rotate(20deg);
+            }
+            to {  -webkit-transform: rotate(25deg);
+                transform: rotate(25deg);
+            }
+        }
+        @-webkit-keyframes animation_error_2 {
+            from { -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+            }
+            to { -webkit-transform: rotate(-20deg);
+                transform: rotate(-20deg);
+            }
+        }
+        @-o-keyframes animation_error_2 {
+            from { -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+            }
+            to { -webkit-transform: rotate(-20deg);
+                transform: rotate(-20deg);
+            }
+        }
+        }
+        @-moz-keyframes animation_error_2 {
+            from { -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+            }
+            to { -webkit-transform: rotate(-20deg);
+                transform: rotate(-20deg);
+            }
+        }
+        @keyframes animation_error_2 {
+            from { -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+            }
+            to { -webkit-transform: rotate(-20deg);
+                transform: rotate(-20deg);
+            }
+        }
+    </style>
 </head>
 <body>
-	<div class="moon"></div>
-<div class="moon__crater moon__crater1"></div>
-<div class="moon__crater moon__crater2"></div>
-<div class="moon__crater moon__crater3"></div>
-
-<div class="star star1"></div>
-<div class="star star2"></div>
-<div class="star star3"></div>
-<div class="star star4"></div>
-<div class="star star5"></div>
-
-<div class="error">
-  <div class="error__title">404</div>
-  <div class="error__subtitle">Hmmm...</div>
-  <div class="error__description">Estamos solucionando el problema lo mas rapido posible</div>
-  <a href="<?=base_url?>"><button class="error__button error__button--active">Cabeza Hogar</button></a>
-</div>
-
-<div class="astronaut">
-  <div class="astronaut__backpack"></div>
-  <div class="astronaut__body"></div>
-  <div class="astronaut__body__chest"></div>
-  <div class="astronaut__arm-left1"></div>
-  <div class="astronaut__arm-left2"></div>
-  <div class="astronaut__arm-right1"></div>
-  <div class="astronaut__arm-right2"></div>
-  <div class="astronaut__arm-thumb-left"></div>
-  <div class="astronaut__arm-thumb-right"></div>
-  <div class="astronaut__leg-left"></div>
-  <div class="astronaut__leg-right"></div>
-  <div class="astronaut__foot-left"></div>
-  <div class="astronaut__foot-right"></div>
-  <div class="astronaut__wrist-left"></div>
-  <div class="astronaut__wrist-right"></div>
-  
-  <div class="astronaut__cord">
-    <canvas id="cord" height="500px" width="500px"></canvas>
-  </div>
-  
-  <div class="astronaut__head">
-    <canvas id="visor" width="60px" height="60px"></canvas>
-    <div class="astronaut__head-visor-flare1"></div>
-    <div class="astronaut__head-visor-flare2"></div>
-  </div>
+<div class="cont_principal">
+    <div class="cont_error">
+        <h1>Error 404</h1>
+        <p>Esta pagina no se encuentra disponible</p>
+    </div>
+    <div class="cont_aura_1"></div>
+    <div class="cont_aura_2"></div>
 </div>
 </body>
-<script type="text/javascript" src="<?=base_url?>views/assets/js/404.js"></script>
+<script>
+    window.onload = function(){
+        document.querySelector('.cont_principal').className= "cont_principal cont_error_active";
+    }
+</script>
 </html>
