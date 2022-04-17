@@ -1,6 +1,28 @@
 <?php
 class utils{
 
+    public static function acento($texto){
+        //Minuscula
+        $texto = str_replace("&aacute;", "á", $texto);
+        $texto = str_replace("&eacute;", "é", $texto);
+        $texto = str_replace("&iacute;", "í", $texto);
+        $texto = str_replace("&oacute;", "ó", $texto);
+        $texto = str_replace("&uacute;", "ú", $texto);
+        $texto = str_replace("&ntilde;", "ñ", $texto);
+        //Mayuscula
+        $texto = str_replace("&Aacute;", "Á", $texto);
+        $texto = str_replace("&Eacute;", "É", $texto);
+        $texto = str_replace("&Iacute;", "Í", $texto);
+        $texto = str_replace("&Oacute;", "Ó", $texto);
+        $texto = str_replace("&Uacute;", "Ú", $texto);
+        $texto = str_replace("&Ntilde;", "Ñ", $texto);
+        //caracter especial
+        $texto = htmlspecialchars_decode($texto, ENT_NOQUOTES);
+        $texto = str_replace("&nbsp;", "", $texto);
+        $texto = str_replace("&quot;", "", $texto);
+        return $texto;
+    }
+
     public static function protege($texto){
         $texto = str_replace("'", "\'", $texto);
         $texto = htmlspecialchars ($texto);
