@@ -9,8 +9,8 @@ require_once 'config/parameters.php'; //cargado de parametros pre establecidos
 require_once 'config/db.php';//conexion a la base de datos
 
 function show_error(){
-    $error = new errorController();
-    $error->error404();
+    $error = new ErrorController();
+    $error->Error404();
 }
 
 if(isset($_GET['controller'])){
