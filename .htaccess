@@ -2,6 +2,7 @@
 # Activar rewrite
 RewriteEngine on
 ErrorDocument 404 http://localhost/ModelMvc/Error/Error404
+ErrorDocument 403 http://localhost/ModelMvc/Error/Error403
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
